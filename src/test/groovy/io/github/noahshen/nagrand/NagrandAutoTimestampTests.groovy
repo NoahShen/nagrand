@@ -22,9 +22,9 @@ class NagrandAutoTimestampTests {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(ClassAutoTimestamp, true)
-        nagrand.stormify(ClassAutoTimestampByAnno, true)
-        nagrand.stormify(ClassNoTimestamp, true)
+        nagrand.register(ClassAutoTimestamp, true)
+        nagrand.register(ClassAutoTimestampByAnno, true)
+        nagrand.register(ClassNoTimestamp, true)
     }
 
     @After

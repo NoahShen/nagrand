@@ -15,7 +15,7 @@ class NagrandConstructionTest {
     void "should create nagrand with instance of groovy Sql"() {
         def sql = groovy.sql.Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         def g = new Nagrand(sql)
-        g.stormify(Person, true)
+        g.register(Person, true)
 
         assert Person.count() == 0 // nagrand should work
         assert sql == g.sql
@@ -26,7 +26,7 @@ class NagrandConstructionTest {
         Class.forName("org.hsqldb.jdbcDriver");
         Connection connection = DriverManager.getConnection("jdbc:hsqldb:mem:database", "sa", "");
         def nagrand = new Nagrand(connection)
-        nagrand.stormify(Person, true)
+        nagrand.register(Person, true)
 
         assert Person.count() == 0
         assert nagrand.sql.connection == connection
@@ -35,7 +35,7 @@ class NagrandConstructionTest {
     @Test
     void "should create nagrand with memory db with no constructor arg"() {
         def nagrand = new Nagrand()
-        nagrand.stormify(Person, true) // should create table
+        nagrand.register(Person, true) // should create table
 
         assert Person.count() == 0 // nagrand should work
         assert "jdbc:hsqldb:mem:database" == nagrand.sql.connection.getMetaData().getURL()
@@ -44,7 +44,7 @@ class NagrandConstructionTest {
     @Test
     void "should create nagrand with file db with String constructor arg"() {
         def nagrand = new Nagrand("tmp/db/test-db")
-        nagrand.stormify(Person, true) // should create table
+        nagrand.register(Person, true) // should create table
 
         assert Person.count() == 0 // nagrand should work
         assert "jdbc:hsqldb:file:tmp/db/test-db" == nagrand.sql.connection.getMetaData().getURL()
@@ -53,7 +53,7 @@ class NagrandConstructionTest {
 
     @Test
     void "should be able to chain stormify"() {
-        def nagrand = new Nagrand().stormify(Person, true).stormify(ClassWithNumbers, true) // should create table
+        def nagrand = new Nagrand().register(Person, true).register(ClassWithNumbers, true) // should create table
 
         assert nagrand instanceof Nagrand
         assert Person.count() == 0 // nagrand should work

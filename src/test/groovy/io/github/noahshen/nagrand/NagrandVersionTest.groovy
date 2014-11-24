@@ -13,7 +13,7 @@ class NagrandVersionTest extends GroovyTestCase {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(ClassWithVersion, true)
+        nagrand.register(ClassWithVersion, true)
     }
 
     void tearDown() {

@@ -35,7 +35,7 @@ class NagrandMysqlLocalTest {
         sql = Sql.newInstance("jdbc:MySQL://localhost:3306/test", "user", "123", "com.mysql.jdbc.Driver")
         nagrand = new Nagrand(sql, SQLDialect.MYSQL)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(Item, true)
+        nagrand.register(Item, true)
     }
 
     @After

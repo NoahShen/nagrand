@@ -17,7 +17,7 @@ class NagrandIdPropertyTests {
     void setUp() {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
-        nagrand.stormify(ClassWithIdProperty, true)
+        nagrand.register(ClassWithIdProperty, true)
     }
 
     @After

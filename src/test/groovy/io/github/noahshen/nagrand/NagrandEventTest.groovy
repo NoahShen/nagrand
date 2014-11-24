@@ -13,7 +13,7 @@ class NagrandEventTest extends GroovyTestCase {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(ClassWithEvents, true)
+        nagrand.register(ClassWithEvents, true)
     }
 
     void tearDown() {

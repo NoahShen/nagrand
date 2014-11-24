@@ -14,7 +14,7 @@ class NagrandFindWhereTest extends GroovyTestCase {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(Person, true)
+        nagrand.register(Person, true)
     }
 
     void tearDown() {

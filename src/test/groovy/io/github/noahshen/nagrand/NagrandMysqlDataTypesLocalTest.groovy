@@ -17,8 +17,8 @@ class NagrandMysqlDataTypesLocalTest extends GroovyTestCase {
         sql = Sql.newInstance("jdbc:MySQL://localhost:3306/test", "user", "123", "com.mysql.jdbc.Driver")
         nagrand = new Nagrand(sql, SQLDialect.MYSQL)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(ClassWithDates, true)
-        nagrand.stormify(ClassWithNumbers, true)
+        nagrand.register(ClassWithDates, true)
+        nagrand.register(ClassWithNumbers, true)
         dateFormat = new SimpleDateFormat("yyyy-MM-dd")
     }
 

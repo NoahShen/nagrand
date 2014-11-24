@@ -57,7 +57,7 @@ class Nagrand {
      *
      * @param modelClass
      */
-    def stormify(Class modelClass, Boolean createTable = false) {
+    def register(Class modelClass, Boolean createTable = false) {
         ClassMetaData classMetaData = new ClassMetaData(modelClass)
         if (createTable) {
             createTableFor(classMetaData)

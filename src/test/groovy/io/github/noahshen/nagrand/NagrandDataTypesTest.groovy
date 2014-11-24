@@ -15,8 +15,8 @@ class NagrandDataTypesTest extends GroovyTestCase {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(ClassWithDates, true)
-        nagrand.stormify(ClassWithNumbers, true)
+        nagrand.register(ClassWithDates, true)
+        nagrand.register(ClassWithNumbers, true)
         dateFormat = new SimpleDateFormat("yyyy-MM-dd")
     }
 
