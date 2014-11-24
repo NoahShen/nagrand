@@ -19,7 +19,7 @@ class WhereableASTTransformationTest extends GroovyTestCase {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
         nagrand.enableQueryLogging(Level.INFO)
-        nagrand.stormify(PersonForTransform, true)
+        nagrand.register(PersonForTransform, true)
     }
 
     @Override

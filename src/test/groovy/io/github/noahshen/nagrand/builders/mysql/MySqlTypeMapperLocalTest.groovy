@@ -25,7 +25,7 @@ class MySqlTypeMapperLocalTest extends GroovyTestCase {
         nagrand = new Nagrand(sql, SQLDialect.MYSQL)
         nagrand.enableQueryLogging(Level.INFO)
 
-        nagrand.stormify(Item, true)
+        nagrand.register(Item, true)
 
     }
 

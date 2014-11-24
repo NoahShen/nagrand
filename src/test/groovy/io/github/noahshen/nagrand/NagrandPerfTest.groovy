@@ -14,7 +14,7 @@ class NagrandPerfTest {
     void setUp() {
         sql = Sql.newInstance("jdbc:hsqldb:mem:database", "sa", "", "org.hsqldb.jdbc.JDBCDriver")
         nagrand = new Nagrand(sql)
-        nagrand.stormify(Person, true)
+        nagrand.register(Person, true)
         start = System.nanoTime()
     }
 

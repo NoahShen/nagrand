@@ -22,7 +22,7 @@ class HSQLDBTypeMapperTest extends GroovyTestCase {
         nagrand = new Nagrand(sql)
         nagrand.enableQueryLogging(Level.INFO)
 
-        nagrand.stormify(Item, true)
+        nagrand.register(Item, true)
 
     }
 
