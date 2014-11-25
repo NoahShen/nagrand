@@ -6,6 +6,14 @@ Nagrand is a lightweight groovy orm
 -------
 
 ## How To Use
+Maven dependency
+```xml
+<dependency>
+    <groupId>io.github.noahshen</groupId>
+    <artifactId>nagrand</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
 
 You need to register classes through Nagrand on app start.
 
@@ -205,3 +213,5 @@ entity.save()
 assert entity.version == 2
 ```
 
+## License
+Project is licensed under Apache 2 license.
