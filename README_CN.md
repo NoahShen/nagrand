@@ -201,25 +201,48 @@ Groovy 操作符对应的查询条件及含义:
 
 ### 事件
 
-`.beforeInsert` 方法会在entity第一次保存的时候会被调用
-
+`.beforeInsert`
+`.afterInsert`
+在创建对象的前/后时候被调用
 ```groovy
 class Item {
   void beforeInsert() {
     ...
   }
+  void afterInsert() {
+    ...
+  }
 }
 ```
 
-`.beforeUpdate` 方法会在entity每次被更新的时候被调用
-
+`.beforeUpdate`
+`.afterUpdate`
+在更新对象的前/后时候被调用
 ```groovy
 class Item {
   void beforeUpdate() {
     ...
   }
+  void afterUpdate() {
+    ...
+  }
 }
 ```
+
+`.beforeDelete`
+`.afterDelete`
+在删除对象的前/后时候被调用
+```groovy
+class Item {
+  void beforeDelete() {
+    ...
+  }
+  void afterDelete() {
+    ...
+  }
+}
+```
+
 
 ### 乐观锁及版本
 Nagrand支持基于version属性的乐观锁，该version属性的值会保存在数据库表中version列

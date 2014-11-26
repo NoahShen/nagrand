@@ -174,20 +174,42 @@ The following table provides a map of Groovy operators to methods:
 ### Events
 
 `.beforeInsert`
-Called before first save
+`.afterInsert`
+Called before/after first save
 ```groovy
 class Item {
   void beforeInsert() {
+    ...
+  }
+  void afterInsert() {
     ...
   }
 }
 ```
 
 `.beforeUpdate`
-Called before object update
+`.afterUpdate`
+Called before/after object update
 ```groovy
 class Item {
   void beforeUpdate() {
+    ...
+  }
+  void afterUpdate() {
+    ...
+  }
+}
+```
+
+`.beforeDelete`
+`.afterDelete`
+Called before/after object delete
+```groovy
+class Item {
+  void beforeDelete() {
+    ...
+  }
+  void afterDelete() {
     ...
   }
 }

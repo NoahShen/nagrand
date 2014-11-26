@@ -17,7 +17,7 @@ class ClassMetaData {
 
     private final List<FieldMetaData> fields
     private final List<FieldMetaData> allFields
-    private Map _fieldsCache        // just to avoid iterating over list of fields and finding by name.
+    private Map _fieldsCache
 
     ClassMetaData(Class modelClass) {
         this.modelClass = modelClass

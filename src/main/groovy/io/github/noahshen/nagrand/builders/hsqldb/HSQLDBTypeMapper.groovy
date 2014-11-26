@@ -1,6 +1,5 @@
 package io.github.noahshen.nagrand.builders.hsqldb
 /**
- * Maintains global Java/Groovy to Sql type mappings. Mappings can be altered here.
  *
  */
 @Singleton
