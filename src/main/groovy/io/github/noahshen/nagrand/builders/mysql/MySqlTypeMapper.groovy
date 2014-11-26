@@ -1,6 +1,5 @@
 package io.github.noahshen.nagrand.builders.mysql
 /**
- * Maintains global Java/Groovy to Sql type mappings. Mappings can be altered here.
  *
  */
 @Singleton

@@ -112,7 +112,7 @@ class ModelClassEnhancer {
                 def insertSqlBuilder = sqlBuilderFactory.createInsertSqlBuilder(this.dialect, metaData, entity)
                 def buildResult = insertSqlBuilder.buildSqlAndValues()
                 def generatedIds = sql.executeInsert(buildResult.sql, buildResult.values)
-                def keyId = generatedIds[0][0] // pretty stupid way to extract it
+                def keyId = generatedIds[0][0]
                 entity."${idFieldName}" = keyId
                 fireEventMethod(entity, "afterInsert")
             } else {

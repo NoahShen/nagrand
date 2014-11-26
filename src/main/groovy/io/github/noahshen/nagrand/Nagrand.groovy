@@ -53,7 +53,7 @@ class Nagrand {
     }
 
     /**
-     * Adds CRUD methods to the modelClass. Also creates table for class if does not exist already.
+     * Adds CRUD methods to the entityClass. Also creates table for class if createTable is true.
      *
      * @param modelClass
      */
@@ -76,7 +76,7 @@ class Nagrand {
         def sqlMetaClass = Sql.class.metaClass
 
         sqlMetaClass.invokeMethod = { String name, args ->
-            if (args) log.log(level, args.first()) // so far the first arg has been the query.
+            if (args) log.log(level, args.first())
             sqlMetaClass.getMetaMethod(name, args).invoke(delegate, args)
         }
     }
