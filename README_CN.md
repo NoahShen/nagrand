@@ -202,7 +202,9 @@ Groovy 操作符对应的查询条件及含义:
 ### 事件
 
 `.beforeInsert`
+
 `.afterInsert`
+
 在创建对象的前/后时候被调用
 ```groovy
 class Item {
@@ -216,7 +218,9 @@ class Item {
 ```
 
 `.beforeUpdate`
+
 `.afterUpdate`
+
 在更新对象的前/后时候被调用
 ```groovy
 class Item {
@@ -230,7 +234,9 @@ class Item {
 ```
 
 `.beforeDelete`
+
 `.afterDelete`
+
 在删除对象的前/后时候被调用
 ```groovy
 class Item {
