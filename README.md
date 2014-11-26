@@ -174,7 +174,9 @@ The following table provides a map of Groovy operators to methods:
 ### Events
 
 `.beforeInsert`
+
 `.afterInsert`
+
 Called before/after first save
 ```groovy
 class Item {
@@ -188,7 +190,9 @@ class Item {
 ```
 
 `.beforeUpdate`
+
 `.afterUpdate`
+
 Called before/after object update
 ```groovy
 class Item {
@@ -202,7 +206,9 @@ class Item {
 ```
 
 `.beforeDelete`
+
 `.afterDelete`
+
 Called before/after object delete
 ```groovy
 class Item {
