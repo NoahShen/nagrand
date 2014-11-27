@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Nagrand by NoahShen</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Nagrand</h1>
+        <h2>a lightweight groovy orm</h2>
+        <a href="https://github.com/NoahShen/nagrand" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="nagrand" class="anchor" href="#nagrand" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nagrand</h1>
+
+<p>Nagrand is a lightweight groovy orm</p>
+
+<hr>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How To Use</h2>
+
+<p>Maven dependency</p>
+
+<div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;io.github.noahshen&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;nagrand&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;0.0.1-SNAPSHOT&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+
+<p>You need to register classes through Nagrand on app start.</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">Nagrand</span> nagrand <span class="pl-k">=</span> <span class="pl-k">..</span>.
+nagrand<span class="pl-k">.</span>register(<span class="pl-st">Person</span>)</pre></div>
+
+<h2>
+<a id="basic-samples" class="anchor" href="#basic-samples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Samples</h2>
+
+<h3>
+<a id="entity-defination" class="anchor" href="#entity-defination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Entity defination</h3>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">@Entity</span>
+<span class="pl-s">class</span> <span class="pl-en">Person</span> {
+    <span class="pl-st">def</span> name
+    <span class="pl-st">int</span> age
+}</pre></div>
+
+<h3>
+<a id="create" class="anchor" href="#create" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create</h3>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">def</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Spiderman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">30</span>)
+person<span class="pl-k">.</span>save()</pre></div>
+
+<h3>
+<a id="update" class="anchor" href="#update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update</h3>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">def</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Spiderman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">30</span>)
+person<span class="pl-k">.</span>save()
+
+person<span class="pl-k">.</span>name <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span>Batman<span class="pl-pds">'</span></span>
+person<span class="pl-k">.</span>save()</pre></div>
+
+<h3>
+<a id="delete" class="anchor" href="#delete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delete</h3>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">def</span> person <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Spiderman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">30</span>)
+
+<span class="pl-c">//...</span>
+
+person<span class="pl-k">.</span>delete()</pre></div>
+
+<h3>
+<a id="query" class="anchor" href="#query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query</h3>
+
+<h3>
+<a id="get-entity-by-id" class="anchor" href="#get-entity-by-id" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get entity by ID</h3>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">Integer</span> id <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-st">Person</span> p <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>get(id)
+<span class="pl-k">if</span> (<span class="pl-k">!</span>p) {
+   <span class="pl-c">//... not found</span>
+}</pre></div>
+
+<h3>
+<a id="dynamic-finders" class="anchor" href="#dynamic-finders" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic Finders</h3>
+
+<p>Dynamic finder looks like a static method invocation.
+The method is auto-generated using code synthesis at runtime, based on the properties of a entity class. </p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Spiderman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">30</span>)<span class="pl-k">.</span>save()
+<span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Batman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">31</span>)<span class="pl-k">.</span>save()
+<span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Superman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">32</span>)<span class="pl-k">.</span>save()
+<span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Ironman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">32</span>)<span class="pl-k">.</span>save()
+
+<span class="pl-st">def</span> persons <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>findByAge(<span class="pl-c1">32</span>)
+<span class="pl-k">assert</span> persons<span class="pl-k">.</span>size() <span class="pl-k">==</span> <span class="pl-c1">2</span>
+<span class="pl-k">assert</span> persons<span class="pl-k">*</span><span class="pl-k">.</span>name <span class="pl-k">==</span> [<span class="pl-s1"><span class="pl-pds">"</span>Superman<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Ironman<span class="pl-pds">"</span></span>]
+
+<span class="pl-st">def</span> batman <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>findFirstByName(<span class="pl-s1"><span class="pl-pds">"</span>Batman<span class="pl-pds">"</span></span>)
+<span class="pl-k">assert</span> batman<span class="pl-k">.</span>name <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">"</span>Batman<span class="pl-pds">"</span></span></pre></div>
+
+<p>Find by multi properties</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">List&lt;<span class="pl-st">Person</span>&gt;</span> persons <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>findByNameAndAge(<span class="pl-s1"><span class="pl-pds">'</span>Superman<span class="pl-pds">'</span></span>, <span class="pl-c1">32</span>)
+<span class="pl-k">assert</span> persons<span class="pl-k">.</span>size() <span class="pl-k">==</span> <span class="pl-c1">1</span>
+<span class="pl-k">assert</span> persons<span class="pl-k">*</span><span class="pl-k">.</span>name <span class="pl-k">==</span> [<span class="pl-s1"><span class="pl-pds">"</span>Superman<span class="pl-pds">"</span></span>]</pre></div>
+
+<p>Find by more options</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">List&lt;<span class="pl-st">Person</span>&gt;</span> persons <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>findByAge(<span class="pl-c1">32</span>) {
+    order(<span class="pl-s1"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>desc<span class="pl-pds">"</span></span>)
+}
+<span class="pl-k">assert</span> persons<span class="pl-k">.</span>size() <span class="pl-k">==</span> <span class="pl-c1">2</span>
+<span class="pl-k">assert</span> persons[<span class="pl-c1">0</span>]<span class="pl-k">.</span>name <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">"</span>Superman<span class="pl-pds">"</span></span></pre></div>
+
+<h3>
+<a id="where-query" class="anchor" href="#where-query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where Query</h3>
+
+<p>The where method is more flexible than dynamic finders</p>
+
+<p>by using the following methods:</p>
+
+<ul>
+<li><code>.find {}</code></li>
+<li><code>.findWhere {}</code></li>
+<li><code>.where {}</code></li>
+<li><code>.findFirst {}</code></li>
+<li><code>.findFirstWhere {}</code></li>
+</ul>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Spiderman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">30</span>)<span class="pl-k">.</span>save()
+<span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Batman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">31</span>)<span class="pl-k">.</span>save()
+<span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Superman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">32</span>)<span class="pl-k">.</span>save()
+<span class="pl-k">new</span> <span class="pl-st">Person</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Ironman<span class="pl-pds">'</span></span>, <span class="pl-c1">age</span>: <span class="pl-c1">32</span>)<span class="pl-k">.</span>save()
+
+<span class="pl-st">List&lt;<span class="pl-st">Person</span>&gt;</span> persons <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>find {
+    eq <span class="pl-s1"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Superman<span class="pl-pds">"</span></span>
+    eq <span class="pl-s1"><span class="pl-pds">"</span>age<span class="pl-pds">"</span></span>, <span class="pl-c1">32</span>
+}
+<span class="pl-k">assert</span> persons<span class="pl-k">.</span>size() <span class="pl-k">==</span> <span class="pl-c1">1</span>
+<span class="pl-k">assert</span> persons<span class="pl-k">*</span><span class="pl-k">.</span>name <span class="pl-k">==</span> [<span class="pl-s1"><span class="pl-pds">"</span>Superman<span class="pl-pds">"</span></span>]</pre></div>
+
+<p>More condition:</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">def</span> results <span class="pl-k">=</span> <span class="pl-st">Account</span><span class="pl-k">.</span>find {
+    between(<span class="pl-s1"><span class="pl-pds">"</span>balance<span class="pl-pds">"</span></span>, <span class="pl-c1">500</span>, <span class="pl-c1">1000</span>)
+    eq(<span class="pl-s1"><span class="pl-pds">"</span>bankName<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>boc<span class="pl-pds">"</span></span>)
+    or {
+        like(<span class="pl-s1"><span class="pl-pds">"</span>firstName<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Noah%<span class="pl-pds">"</span></span>)
+        like(<span class="pl-s1"><span class="pl-pds">"</span>firstName<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Sara%<span class="pl-pds">"</span></span>)
+    }
+    maxResults(<span class="pl-c1">10</span>)
+    order(<span class="pl-s1"><span class="pl-pds">"</span>balance<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>desc<span class="pl-pds">"</span></span>)
+}</pre></div>
+
+<h3>
+<a id="groovy-style-query" class="anchor" href="#groovy-style-query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Groovy-style query</h3>
+
+<p>Nagrand supports groovy-style query by providing an enhanced, compile-time checked query DSL for common queries</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">def</span> person <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>where {
+   firstName <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">"</span>Ironman<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">def</span> person <span class="pl-k">=</span> <span class="pl-st">Person</span><span class="pl-k">.</span>where {
+    (lastName <span class="pl-k">!=</span> <span class="pl-s1"><span class="pl-pds">"</span>Shen<span class="pl-pds">"</span></span> <span class="pl-k">&amp;&amp;</span> firstName <span class="pl-k">!=</span> <span class="pl-s1"><span class="pl-pds">"</span>Noah<span class="pl-pds">"</span></span>) <span class="pl-k">||</span> (firstName <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">"</span>Sara<span class="pl-pds">"</span></span> <span class="pl-k">&amp;&amp;</span> age <span class="pl-k">&gt;</span> <span class="pl-c1">20</span>)
+}</pre></div>
+
+<p>Groovy operator maps onto a where method. 
+The following table provides a map of Groovy operators to methods:</p>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>where method</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>eq</td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>nq</td>
+<td>Not equal to</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>gt</td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>lt</td>
+<td>Less than</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>ge</td>
+<td>Greater than or equal to</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>le</td>
+<td>Less than or equal to</td>
+</tr>
+<tr>
+<td>in</td>
+<td>inList</td>
+<td>Contained within the given list</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h3>
+
+<p><code>.beforeInsert</code></p>
+
+<p><code>.afterInsert</code></p>
+
+<p>Called before/after first save</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-s">class</span> <span class="pl-en">Item</span> {
+  <span class="pl-st">void</span> <span class="pl-en">beforeInsert</span>() {
+    <span class="pl-k">..</span>.
+  }
+  <span class="pl-st">void</span> <span class="pl-en">afterInsert</span>() {
+    <span class="pl-k">..</span>.
+  }
+}</pre></div>
+
+<p><code>.beforeUpdate</code></p>
+
+<p><code>.afterUpdate</code></p>
+
+<p>Called before/after object update</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-s">class</span> <span class="pl-en">Item</span> {
+  <span class="pl-st">void</span> <span class="pl-en">beforeUpdate</span>() {
+    <span class="pl-k">..</span>.
+  }
+  <span class="pl-st">void</span> <span class="pl-en">afterUpdate</span>() {
+    <span class="pl-k">..</span>.
+  }
+}</pre></div>
+
+<p><code>.beforeDelete</code></p>
+
+<p><code>.afterDelete</code></p>
+
+<p>Called before/after object delete</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-s">class</span> <span class="pl-en">Item</span> {
+  <span class="pl-st">void</span> <span class="pl-en">beforeDelete</span>() {
+    <span class="pl-k">..</span>.
+  }
+  <span class="pl-st">void</span> <span class="pl-en">afterDelete</span>() {
+    <span class="pl-k">..</span>.
+  }
+}</pre></div>
+
+<h3>
+<a id="optimistic-locking-and-version" class="anchor" href="#optimistic-locking-and-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimistic Locking and Version</h3>
+
+<p>Nagrand uses optimistic locking by a version property which is in turn mapped to a version column at the database.</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-s">class</span> <span class="pl-en">ClassWithVersion</span> {
+    <span class="pl-st">Integer</span> id
+    <span class="pl-st">String</span> name
+    <span class="pl-st">Integer</span> version
+}</pre></div>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-st">def</span> entity <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-st">ClassWithVersion</span>(<span class="pl-c1">name</span>: <span class="pl-s1"><span class="pl-pds">'</span>Spiderman<span class="pl-pds">'</span></span>)<span class="pl-k">.</span>save()
+<span class="pl-k">assert</span> entity<span class="pl-k">.</span>version <span class="pl-k">==</span> <span class="pl-c1">1</span>
+
+entity<span class="pl-k">.</span>name <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Superman<span class="pl-pds">"</span></span>
+entity<span class="pl-k">.</span>save()
+<span class="pl-k">assert</span> entity<span class="pl-k">.</span>version <span class="pl-k">==</span> <span class="pl-c1">2</span></pre></div>
+
+<h3>
+<a id="automatic-timestamping" class="anchor" href="#automatic-timestamping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatic timestamping</h3>
+
+<p>If you define a dateCreated property, it will be set to the current date for you when you create new instances. Likewise, if you define a lastUpdated property it will be automatically be updated for you when you change the instances.</p>
+
+<div class="highlight highlight-groovy"><pre><span class="pl-s">class</span> <span class="pl-en">ClassAutoTimestamp</span> {
+    <span class="pl-st">Integer</span> id
+    <span class="pl-st">String</span> name
+    <span class="pl-st">Date</span> dateCreated
+    <span class="pl-st">Date</span> lastUpdated
+}</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Project is licensed under Apache License 2.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/NoahShen/nagrand/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/NoahShen/nagrand/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/NoahShen/nagrand"></a> is maintained by <a href="https://github.com/NoahShen">NoahShen</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
