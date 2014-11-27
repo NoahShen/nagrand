@@ -255,4 +255,4 @@ class ClassAutoTimestamp {
 ```
 
 ## License
-Project is licensed under Apache 2 license.
+Project is licensed under Apache License 2.
