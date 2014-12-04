@@ -6,7 +6,7 @@
 
     <groupId>io.github.noahshen</groupId>
     <artifactId>nagrand</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>nagrand</name>
     <description>a lightweight groovy orm</description>
