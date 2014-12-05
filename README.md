@@ -11,7 +11,7 @@ Maven dependency
 <dependency>
     <groupId>io.github.noahshen</groupId>
     <artifactId>nagrand</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 </dependency>
 ```
 
