@@ -34,13 +34,15 @@ class EntityInitializerTest extends Specification {
     def "Init"() {
         setup:
         entityInitializerStub.createTable = true
-        entityInitializerStub.entityPackage = "io.github.noahshen.nagrand.models"
+        entityInitializerStub.entityPackage = "io.github.noahshen.nagrand.spring.entity"
         entityInitializerStub.sqlLog = true
 
         ComboPooledDataSource ds = new ComboPooledDataSource()
         ds.driverClass = "org.hsqldb.jdbcDriver"
         ds.jdbcUrl = "jdbc:hsqldb:mem:database"
         ds.user = "sa"
+        entityInitializerStub.dataSource = ds
+
 
         when:
         entityInitializerStub.init()
@@ -51,6 +53,6 @@ class EntityInitializerTest extends Specification {
         allPersons.size() == 1
 
         def methods = ItemWithoutEntity.respondsTo("where")
-        !methods
+        methods.size() == 0
     }
 }

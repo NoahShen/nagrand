@@ -31,8 +31,7 @@ class EntityInitializer {
         Set allEntityClass = []
         packages.each {
             Reflections reflections = new Reflections(it.trim())
-            allEntityClass << reflections.getTypesAnnotatedWith(Entity)
-
+            allEntityClass.addAll reflections.getTypesAnnotatedWith(Entity)
         }
 
         if (!allEntityClass) {
