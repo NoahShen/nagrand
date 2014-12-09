@@ -22,15 +22,7 @@ class EntityInitializerTest extends Specification {
     void setup() {
         entityInitializerStub = new EntityInitializer()
     }
-/*
-<!-- HSQLDB datasource -->
- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-  <property name="driverClass" value="org.hsqldb.jdbcDriver" />
-  <property name="jdbcUrl" value="jdbc:hsqldb:mem:ex" />
-  <property name="user" value="sa" />
-  <property name="password" value="" />
- </bean>
- */
+
     def "Init"() {
         setup:
         entityInitializerStub.createTable = true
