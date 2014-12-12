@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       ">
+
+    <!-- HSQLDB datasource -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="org.hsqldb.jdbcDriver" />
+        <property name="jdbcUrl" value="jdbc:hsqldb:mem:database" />
+        <property name="user" value="sa"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <bean id="entityInitializer" class="io.github.noahshen.nagrand.spring.EntityInitializer"
+            init-method="init">
+        <property name="entityPackage" value="io.github.noahshen.nagrand.spring.entity"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="createTable" value="true"/>
+        <property name="sqlLog" value="true"/>
+    </bean>
+</beans>
