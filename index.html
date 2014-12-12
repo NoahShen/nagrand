@@ -43,13 +43,23 @@
 <div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;io.github.noahshen&lt;/<span class="pl-ent">groupId</span>&gt;
     &lt;<span class="pl-ent">artifactId</span>&gt;nagrand&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;0.0.1-SNAPSHOT&lt;/<span class="pl-ent">version</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;0.0.2&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
 <p>You need to register classes through Nagrand on app start.</p>
 
 <div class="highlight highlight-groovy"><pre><span class="pl-st">Nagrand</span> nagrand <span class="pl-k">=</span> <span class="pl-k">..</span>.
 nagrand<span class="pl-k">.</span>register(<span class="pl-st">Person</span>)</pre></div>
+
+<p>or init as a Spring Framework bean</p>
+
+<div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">bean</span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>entityInitializer<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>io.github.noahshen.nagrand.spring.EntityInitializer<span class="pl-pds">"</span></span>
+        <span class="pl-e">init-method</span>=<span class="pl-s1"><span class="pl-pds">"</span>init<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">property</span> <span class="pl-e">name</span>=<span class="pl-s1"><span class="pl-pds">"</span>entityPackage<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>io.github.noahshen.nagrand.spring.entity<span class="pl-pds">"</span></span>/&gt;
+    &lt;<span class="pl-ent">property</span> <span class="pl-e">name</span>=<span class="pl-s1"><span class="pl-pds">"</span>dataSource<span class="pl-pds">"</span></span> <span class="pl-e">ref</span>=<span class="pl-s1"><span class="pl-pds">"</span>dataSource<span class="pl-pds">"</span></span>/&gt;
+    &lt;<span class="pl-ent">property</span> <span class="pl-e">name</span>=<span class="pl-s1"><span class="pl-pds">"</span>createTable<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>/&gt;
+    &lt;<span class="pl-ent">property</span> <span class="pl-e">name</span>=<span class="pl-s1"><span class="pl-pds">"</span>sqlLog<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>/&gt;
+&lt;/<span class="pl-ent">bean</span>&gt;</pre></div>
 
 <h2>
 <a id="basic-samples" class="anchor" href="#basic-samples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Samples</h2>
