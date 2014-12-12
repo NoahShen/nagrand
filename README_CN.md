@@ -26,13 +26,13 @@ nagrand.register(Person)
 或者在Spring中初始化
 
 ```xml
-    <bean id="entityInitializer" class="io.github.noahshen.nagrand.spring.EntityInitializer"
-            init-method="init">
-        <property name="entityPackage" value="io.github.noahshen.nagrand.spring.entity"/>
-        <property name="dataSource" ref="dataSource"/>
-        <property name="createTable" value="true"/>
-        <property name="sqlLog" value="true"/>
-    </bean>
+<bean id="entityInitializer" class="io.github.noahshen.nagrand.spring.EntityInitializer"
+        init-method="init">
+    <property name="entityPackage" value="io.github.noahshen.nagrand.spring.entity"/>
+    <property name="dataSource" ref="dataSource"/>
+    <property name="createTable" value="true"/>
+    <property name="sqlLog" value="true"/>
+</bean>
 ```
 
 
