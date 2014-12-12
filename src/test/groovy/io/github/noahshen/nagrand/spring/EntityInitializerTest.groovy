@@ -1,23 +1,14 @@
 package io.github.noahshen.nagrand.spring
-
 import com.mchange.v2.c3p0.ComboPooledDataSource
 import io.github.noahshen.nagrand.spring.entity.ItemWithoutEntity
 import io.github.noahshen.nagrand.spring.entity.Person
 import spock.lang.Specification
-
-import javax.sql.DataSource
 /**
  * Created by noahshen on 14-12-9.
  */
 class EntityInitializerTest extends Specification {
 
     EntityInitializer entityInitializerStub
-
-    String entityPackage
-
-    DataSource dataSource
-
-    Boolean createTable
 
     void setup() {
         entityInitializerStub = new EntityInitializer()

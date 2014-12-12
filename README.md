@@ -11,7 +11,7 @@ Maven dependency
 <dependency>
     <groupId>io.github.noahshen</groupId>
     <artifactId>nagrand</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
@@ -21,6 +21,19 @@ You need to register classes through Nagrand on app start.
 Nagrand nagrand = ...
 nagrand.register(Person)
 ```
+
+or init as a Spring Framework bean
+
+```xml
+    <bean id="entityInitializer" class="io.github.noahshen.nagrand.spring.EntityInitializer"
+            init-method="init">
+        <property name="entityPackage" value="io.github.noahshen.nagrand.spring.entity"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="createTable" value="true"/>
+        <property name="sqlLog" value="true"/>
+    </bean>
+```
+
 
 ## Basic Samples
 
