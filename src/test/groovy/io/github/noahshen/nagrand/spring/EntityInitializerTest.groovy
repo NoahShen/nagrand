@@ -31,7 +31,7 @@ class EntityInitializerTest extends Specification {
 
         ComboPooledDataSource ds = new ComboPooledDataSource()
         ds.driverClass = "org.hsqldb.jdbcDriver"
-        ds.jdbcUrl = "jdbc:hsqldb:mem:database"
+        ds.jdbcUrl = "jdbc:hsqldb:mem:simpleInitTest"
         ds.user = "sa"
         entityInitializerStub.dataSource = ds
 
