@@ -3,6 +3,7 @@ package io.github.noahshen.nagrand.metadata
 import io.github.noahshen.nagrand.annotation.AutoDateCreated
 import io.github.noahshen.nagrand.annotation.AutoLastUpdated
 import io.github.noahshen.nagrand.annotation.Id
+import io.github.noahshen.nagrand.annotation.Ignore
 import io.github.noahshen.nagrand.annotation.Table
 
 import java.lang.reflect.Field
@@ -59,7 +60,7 @@ class ClassMetaData {
 
     private List<FieldMetaData> getOtherFieldsOfClass(Class modelClass) {
         fieldsDeclaredIn(modelClass)
-                .findAll { !it.isAnnotationPresent(Id) && it.name != "id" }
+                .findAll { !it.isAnnotationPresent(Id) && it.name != "id" && !it.isAnnotationPresent(Ignore)}
                 .collect { field -> new FieldMetaData(field) }
     }
 

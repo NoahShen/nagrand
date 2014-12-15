@@ -9,9 +9,7 @@ import org.junit.Test
 
 import java.util.logging.Level
 
-/**
- * A bad test is better than no test :)
- */
+
 class NagrandAutoTimestampTests {
 
     Nagrand nagrand

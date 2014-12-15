@@ -6,9 +6,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
-/**
- * A bad test is better than no test :)
- */
+
 class NagrandAnnotatedIdTests {
 
     Nagrand nagrand

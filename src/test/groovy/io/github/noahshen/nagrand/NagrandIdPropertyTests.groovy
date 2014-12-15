@@ -4,9 +4,8 @@ import io.github.noahshen.nagrand.models.ClassWithIdProperty
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-/**
- * A bad test is better than no test :)
- */
+
+
 class NagrandIdPropertyTests {
 
     Nagrand nagrand
