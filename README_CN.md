@@ -12,7 +12,7 @@ Maven依赖
 <dependency>
     <groupId>io.github.noahshen</groupId>
     <artifactId>nagrand</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
 </dependency>
 ```
 
