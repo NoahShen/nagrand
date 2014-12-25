@@ -1,5 +1,6 @@
 package io.github.noahshen.nagrand.spring
 import com.mchange.v2.c3p0.ComboPooledDataSource
+import io.github.noahshen.nagrand.builders.SQLDialect
 import io.github.noahshen.nagrand.spring.entity.ItemWithoutEntity
 import io.github.noahshen.nagrand.spring.entity.Person
 import spock.lang.Specification
@@ -25,6 +26,7 @@ class EntityInitializerTest extends Specification {
         ds.jdbcUrl = "jdbc:hsqldb:mem:simpleInitTest"
         ds.user = "sa"
         entityInitializerStub.dataSource = ds
+        entityInitializerStub.dialect = SQLDialect.HSQLDB
 
 
         when:

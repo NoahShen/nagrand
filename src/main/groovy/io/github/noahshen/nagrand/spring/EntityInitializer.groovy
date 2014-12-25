@@ -3,6 +3,7 @@ package io.github.noahshen.nagrand.spring
 import groovy.sql.Sql
 import io.github.noahshen.nagrand.Nagrand
 import io.github.noahshen.nagrand.annotation.Entity
+import io.github.noahshen.nagrand.builders.SQLDialect
 import org.reflections.Reflections
 
 import javax.sql.DataSource
@@ -23,6 +24,8 @@ class EntityInitializer {
 
     Boolean sqlLog
 
+    SQLDialect dialect
+
     void init() {
         if (!entityPackage) {
             return
@@ -38,7 +41,7 @@ class EntityInitializer {
             return
         }
 
-        nagrand = new Nagrand(new Sql(dataSource))
+        nagrand = new Nagrand(new Sql(dataSource), dialect)
         if (sqlLog) {
             nagrand.enableQueryLogging(Level.INFO)
         }
