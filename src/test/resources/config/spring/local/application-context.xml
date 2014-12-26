@@ -19,5 +19,6 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="createTable" value="true"/>
         <property name="sqlLog" value="true"/>
+        <property name="dialect" value="HSQLDB"/>
     </bean>
 </beans>

@@ -25,6 +25,7 @@
         <property name="dataSource" ref="dataSourceA"/>
         <property name="createTable" value="true"/>
         <property name="sqlLog" value="true"/>
+        <property name="dialect" value="HSQLDB"/>
     </bean>
 
     <bean id="entityInitializerB" class="io.github.noahshen.nagrand.spring.EntityInitializer"
@@ -33,5 +34,6 @@
         <property name="dataSource" ref="dataSourceB"/>
         <property name="createTable" value="true"/>
         <property name="sqlLog" value="true"/>
+        <property name="dialect" value="HSQLDB"/>
     </bean>
 </beans>
