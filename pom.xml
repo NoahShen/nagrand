@@ -212,6 +212,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.16</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <entity.transform>true</entity.transform>
+                    </systemPropertyVariables>
                     <excludes>
                         <exclude>**/*DaoTest.*</exclude>
                         <exclude>**/*LocalTest.*</exclude>
